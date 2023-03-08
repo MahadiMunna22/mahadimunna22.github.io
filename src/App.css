@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Comforter&family=Dancing+Script&family=Fredoka+One&family=Montserrat&family=Orbitron&family=Poppins&display=swap");
+
+main {
+  background-image: url("./assets/images/bg1.jpg");
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow-y: auto;
+  height: 100vh;
+  background-color: rgb(32 32 42 / 96%);
+}
+.MuiSvgIcon-root {
+  color: rgb(158, 158, 158);
+}
+.MuiSvgIcon-root:hover {
+  color: #fff;
+}
+.MuiTimelineItem-root:before {
+  content: none !important;
+}
+
+.ScrollbarsCustom-Track {
+  border-radius: 0px !important;
+}
+.ScrollbarsCustom-TrackY {
+  top: 0px !important;
+  background-color: rgb(32 32 42 / 96%) !important;
+  height: 100% !important;
+}
+.App {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #20202a;
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  .MuiTimelineContent-root {
+    padding-right: 0px !important;
+  }
+  .MuiTimeline-root {
+    padding-right: 0px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+  .MuiTimelineContent-root {
+    padding-right: 0px !important;
+  }
+  .MuiTimeline-root {
+    padding-right: 0px !important;
+  }
+}

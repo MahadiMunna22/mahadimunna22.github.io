@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ccef4dff-4800-43ca-ade3-a8af3e33d4fc" name="Changes" comment="updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.fe1baea7.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.fe1baea7.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/787.8d4efb73.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/787.8d4efb73.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.c25ccc3b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.c25ccc3b.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.c25ccc3b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/0.c8b6a18a616182b6f964.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/1.03541da3559bf98b33bf.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/2.c8c134476039efc8e0cf.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/3.7a2c64ecc2cb35058dc9.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/4.f5c06b2b08447ec8aabb.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/5.7b360be6e40d8bbdd0de.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/6.5c5f25120cc69345d7b0.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/7.bdd616a246bb64c6801b.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/FlappyBird.419993202ab4fa6eb4fb.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/GOBY24LOGO.d388189a3aa0d970e98d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/HospitalCabin.8ce22ac47487c6d7d42b.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/NTCC Poster.dab805e47537bd7a70ea.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/StudyTour.9c159e693e381767b272.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/Thieves_Of_Justice_banner.f6a02a69333d8ed5f780.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/bg1.78a00274fb6e27ba931d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/pro_pic.563a786a672140846944.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="38769e34-d190-4945-8d98-c8c9a337af86" />
+        <option name="url" value="https://github.com/MahadiMunna22/MahadiMunna22.github.io.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2McUAdwOYqDMMwMzGQzH1upKoVU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "G:/Practice/Portfolio/MahadiMunna22.github.io/src/assets/images/Projects/TheivesOfJustice",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\TheivesOfJustice" />
+      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\HCMS" />
+      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\NMIS" />
+      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\Autoby24" />
+      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\Goby24MobileAPP" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ccef4dff-4800-43ca-ade3-a8af3e33d4fc" name="Changes" comment="" />
+      <created>1678066227801</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678066227801</updated>
+      <workItem from="1678066231966" duration="10676000" />
+    </task>
+    <task id="LOCAL-00001" summary="updated">
+      <created>1678236594444</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678236594444</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+  </component>
+</project>
