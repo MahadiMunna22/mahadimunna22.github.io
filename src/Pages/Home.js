@@ -67,9 +67,9 @@ export default function Home(props) {
                 backgroundColor: "yellow",
                 color: "#20202a",
                 marginTop: "1rem",
-                padding: "1rem 1.75rem",
+                padding: "0.5rem 0.75rem",
                 borderRadius: "0px",
-                fontSize: "10px",
+                fontSize: "14px",
               }}
               variant="contained"
             >
@@ -88,8 +88,8 @@ export default function Home(props) {
               alignItems: "center",
             }}
           >
-            <span className={classes.expYear}>1+</span>
-            <span className={classes.expText}>
+            <span className={classes.expYear}>2+</span>
+            <span onClick={() => navigate("/work-experiences")} className={classes.expText}>
               Years of industrial experience
             </span>
           </div>
@@ -105,7 +105,7 @@ export default function Home(props) {
             }}
           >
             <span className={classes.expYear}>4</span>
-            <span className={classes.expText}>Years of academic knowledge</span>
+            <span onClick={() => navigate("/education")} className={classes.expText}>Years of academic knowledge</span>
           </div>
         </Grid>
         <Grid item xs={6} md={3}>
@@ -119,7 +119,7 @@ export default function Home(props) {
             }}
           >
             <span className={classes.expYear}>15+</span>
-            <span className={classes.expText}>Projects completed</span>
+            <span onClick={() => navigate("/projects")} className={classes.expText}>Projects completed</span>
           </div>
         </Grid>
         <Grid item xs={6} md={3}>
@@ -133,7 +133,7 @@ export default function Home(props) {
             }}
           >
             <span className={classes.expYear}>3</span>
-            <span className={classes.expText}>Academic Publicatons</span>
+            <span onClick={() => navigate("/publications")} className={classes.expText}>Academic Publicatons</span>
           </div>
         </Grid>
       </Grid>
@@ -383,6 +383,7 @@ const useStyles = makeStyles((theme) => ({
   expText: {
     fontSize: "16px",
     marginLeft: "1rem",
+    cursor: 'pointer'
   },
   [theme.breakpoints.down("xs")]: {
     fontSize: "8px",

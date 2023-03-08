@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccef4dff-4800-43ca-ade3-a8af3e33d4fc" name="Changes" comment="updated">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/ProPic.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/asset-manifest.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
@@ -15,6 +16,10 @@
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Project.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/LeftSideWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/LeftSideWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.fe1baea7.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.fe1baea7.css.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/787.8d4efb73.chunk.js" beforeDir="false" />
@@ -79,7 +84,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/Practice/Portfolio/MahadiMunna22.github.io/src/assets/images/Projects/TheivesOfJustice",
+    "last_opened_file_path": "G:/Practice/Portfolio/MahadiMunna22.github.io/src/assets/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,12 +95,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images" />
       <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\TheivesOfJustice" />
       <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\HCMS" />
       <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\NMIS" />
       <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\Autoby24" />
-      <recent name="G:\Practice\Portfolio\MahadiMunna22.github.io\src\assets\images\Projects\Goby24MobileAPP" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -105,7 +119,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678066227801</updated>
-      <workItem from="1678066231966" duration="11657000" />
+      <workItem from="1678066231966" duration="15138000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <created>1678236594444</created>

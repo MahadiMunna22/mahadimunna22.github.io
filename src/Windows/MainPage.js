@@ -146,6 +146,11 @@ export default function MainPage() {
   }, []);
 
   useEffect(() => {
+    console.log(window.location.href);
+    document.getElementsByClassName("ScrollbarsCustom-Wrapper")[0].scrollTo(0, 0);
+  }, [window.location.href])
+
+  useEffect(() => {
     if (matches) {
       setLeftOpen(true);
     } else setLeftOpen(false);

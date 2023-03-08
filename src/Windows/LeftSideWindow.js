@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
 import Scrollbar from "react-scrollbars-custom";
-import proPic from "../assets/images/pro_pic.jpg";
+import proPic from "../assets/images/ProPic.jpg";
 import CircularProgressWithLabel from "../Component/CircularProgressWithLabel";
 import LinearProgress from "@mui/material/LinearProgress";
 import { IconButton, withStyles } from "@material-ui/core";
@@ -10,6 +10,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import moment from "moment";
+import { useNavigate } from "react-router";
 
 const StyledLinearProgress = withStyles({
   colorPrimary: {
@@ -21,6 +22,7 @@ const StyledLinearProgress = withStyles({
 })(LinearProgress);
 
 export default function LeftSideWindow() {
+    const navigate = useNavigate();
   return (
     <div style={{ zIndex: 2 }}>
       <Scrollbar style={{ height: "100vh" }} removeTrackYWhenNotUsed={true}>
@@ -39,11 +41,12 @@ export default function LeftSideWindow() {
             transition: "width 2s",
           }}
         >
-          <div
+          <div onClick={() => navigate("/")}
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+                cursor: 'pointer'
             }}
           >
             <img

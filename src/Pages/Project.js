@@ -213,23 +213,23 @@ export default function Project(props) {
           value={tabValue}
           onChange={handleChange}
           aria-label="basic tabs example"
-          centered
+          // centered
           variant="scrollable"
           scrollButtons="auto"
           TabIndicatorProps={{ style: { background: "yellow" } }}
         >
           {projectVariants.map((variant, key) => (
-            <Tab label={variant} {...a11yProps(key)} />
+            <Tab key={key} label={variant} {...a11yProps(key)} />
           ))}
         </Tabs>
       </div>
       {projectVariants.map((variant, key) => (
-        <TabPanel value={tabValue} index={key}>
+        <TabPanel key={key} value={tabValue} index={key}>
           <Grid container spacing={4}>
             {projects
               .filter((p) => p.type.includes(variant))
-              .map((project) => (
-                <Grid item xs={12} md={6}>
+              .map((project, idx) => (
+                <Grid key={idx} item xs={12} md={6}>
                   <Box
                     className={classes.projectBox}
                     onClick={() =>
@@ -250,9 +250,9 @@ export default function Project(props) {
                       style={{
                         marginBottom: "0px",
                         display: "-webkit-box",
-                        "-webkit-line-clamp": 2,
+                        WebkitLineClamp: 2,
                         width: "100%",
-                        "-webkit-box-orient": "vertical",
+                        WebkitBoxOrient: "vertical",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         whiteSpace: "normal",
