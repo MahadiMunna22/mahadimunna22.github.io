@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fe1baea7.css",
-    "main.js": "/static/js/main.49dce5ab.js",
+    "main.js": "/static/js/main.73fb9c6a.js",
     "static/js/787.8d4efb73.chunk.js": "/static/js/787.8d4efb73.chunk.js",
     "static/media/NTCC Poster.jpg": "/static/media/NTCC Poster.dab805e47537bd7a70ea.jpg",
     "static/media/2.png": "/static/media/2.70fe1add404c516e5a11.png",
@@ -19,8 +19,8 @@
     "static/media/5.PNG": "/static/media/5.b5d6edbff969baf70a68.PNG",
     "static/media/6.png": "/static/media/6.28472e2a3d3c9ae0efb1.png",
     "static/media/7.jpg": "/static/media/7.20234b1bbd0380db4d99.jpg",
+    "static/media/ProPic.jpg": "/static/media/ProPic.7d94fea25bda830a9311.jpg",
     "static/media/5.jpg": "/static/media/5.7575775a65a02602b141.jpg",
-    "static/media/pro_pic.jpg": "/static/media/pro_pic.563a786a672140846944.jpg",
     "static/media/4.jpg": "/static/media/4.bfc20896b25ad7687507.jpg",
     "static/media/3.jpg": "/static/media/3.295b1c63274c18f78e33.jpg",
     "static/media/2.jpg": "/static/media/2.295005777f7fd46aa055.jpg",
@@ -44,11 +44,11 @@
     "static/media/4.PNG": "/static/media/4.8ffb6b4bf43b00b95e43.PNG",
     "index.html": "/index.html",
     "main.fe1baea7.css.map": "/static/css/main.fe1baea7.css.map",
-    "main.49dce5ab.js.map": "/static/js/main.49dce5ab.js.map",
+    "main.73fb9c6a.js.map": "/static/js/main.73fb9c6a.js.map",
     "787.8d4efb73.chunk.js.map": "/static/js/787.8d4efb73.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe1baea7.css",
-    "static/js/main.49dce5ab.js"
+    "static/js/main.73fb9c6a.js"
   ]
 }
