@@ -25,61 +25,61 @@ export default function LeftSideWindow() {
     const navigate = useNavigate();
   return (
     <div style={{ zIndex: 2 }}>
-      <Scrollbar style={{ height: "100vh" }} removeTrackYWhenNotUsed={true}>
         {/* Heading part */}
-        <Box
-          sx={{
-            width: 300,
-            height: 250,
-            backgroundColor: "rgba(37, 37, 50, 0.98)",
-            position: "fixed",
-            top: 0,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 10,
-            transition: "width 2s",
-          }}
-        >
-          <div onClick={() => navigate("/")}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-                cursor: 'pointer'
-            }}
-          >
-            <img
-              src={proPic}
-              alt="my_pic"
-              style={{
-                height: "100px",
-                width: "100px",
-                borderRadius: "50%",
-                border: "1px solid yellow",
-                objectFit: "cover",
-              }}
-            />
-            <h4 style={{ fontFamily: "Poppins", marginBottom: "0px" }}>
-              Md. Mahadi Hassan Munna
-            </h4>
-            <p
-              style={{
-                textAlign: "center",
-                color: "#666",
-                fontSize: "13px",
-              }}
+        <div>
+            <Box
+                sx={{
+                    width: 300,
+                    height: 250,
+                    backgroundColor: "rgba(37, 37, 50, 0.98)",
+                    position: "sticky",
+                    top: 0,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    zIndex: 10,
+                }}
             >
-              Software Engineer, Front-end Developer, <br /> Game Developer
-            </p>
-          </div>
-        </Box>
-
+                <div onClick={() => navigate("/")}
+                     style={{
+                         display: "flex",
+                         flexDirection: "column",
+                         alignItems: "center",
+                         cursor: 'pointer'
+                     }}
+                >
+                    <img
+                        src={proPic}
+                        alt="my_pic"
+                        style={{
+                            height: "100px",
+                            width: "100px",
+                            borderRadius: "50%",
+                            border: "1px solid yellow",
+                            objectFit: "cover",
+                        }}
+                    />
+                    <h4 style={{ fontFamily: "Poppins", marginBottom: "0px" }}>
+                        Md. Mahadi Hassan Munna
+                    </h4>
+                    <p
+                        style={{
+                            textAlign: "center",
+                            color: "#666",
+                            fontSize: "13px",
+                        }}
+                    >
+                        Software Engineer, Front-end Developer, <br /> Game Developer
+                    </p>
+                </div>
+            </Box>
+        </div>
+      <Scrollbar style={{ height: "calc(100vh - 250px)" }} removeTrackYWhenNotUsed={true}>
         {/* Body */}
         <div style={{ padding: "2rem" }}>
           <Box
             sx={{
-              height: 220,
+              // height: 220,
             }}
           />
 

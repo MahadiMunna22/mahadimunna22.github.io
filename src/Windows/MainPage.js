@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
@@ -10,7 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { makeStyles } from "@material-ui/core";
-import Scrollbar from "react-scrollbars-custom";
+import Scrollbars from "react-scrollbars-custom";
 import RightWindow, { RightWindowText } from "./RightWindow";
 import LeftSideWindow from "./LeftSideWindow";
 import Home from "../Pages/Home";
@@ -20,6 +20,7 @@ import Publications from "../Pages/Publications";
 import WorkExp from "../Pages/WorkExp";
 import Contact from "../Pages/Contact";
 import ProjectDetails from "../Pages/ProjectDetails";
+import {AccountCircleOutlined} from "@mui/icons-material";
 
 const leftDrawerWidth = 300;
 const rightDrawerWidth = 240;
@@ -139,6 +140,8 @@ export default function MainPage() {
     window.matchMedia("(min-width: 768px)").matches
   );
 
+  const scrollRef = useRef();
+
   useEffect(() => {
     window
       .matchMedia("(min-width: 768px)")
@@ -146,15 +149,19 @@ export default function MainPage() {
   }, []);
 
   useEffect(() => {
-    console.log(window.location.href);
-    document.getElementsByClassName("ScrollbarsCustom-Wrapper")[0].scrollTo(0, 0);
-  }, [window.location.href])
+    console.log(window.location.pathname);
+    ScrollToTop();
+  }, [window.location.pathname]);
 
   useEffect(() => {
     if (matches) {
       setLeftOpen(true);
     } else setLeftOpen(false);
   }, [matches]);
+
+  const ScrollToTop = () => {
+    scrollRef.current.scrollToTop();
+  }
 
   const handleRightDrawerToggle = () => {
     setRightOpen(!rightOpen);
@@ -166,7 +173,7 @@ export default function MainPage() {
 
   return (
     <BrowserRouter>
-      <div className=" container">
+      <div className="container">
         <Box sx={{ display: "flex", overflow: "hidden" }}>
           <LeftDrawer
             anchor={"left"}
@@ -198,11 +205,17 @@ export default function MainPage() {
               transition: "margin-Inline 0.5s",
             }}
             onClick={() => {
-              rightOpen ? handleRightDrawerToggle() : console.log("Clicked");
+              if(rightOpen){
+                handleRightDrawerToggle();
+              }
+              if(leftOpen){
+                !matches && handleLeftDrawerToggle();
+              }
+
             }}
             className={classes.mainBody}
           >
-            <Scrollbar style={{ height: "100%" }}>
+            <Scrollbars ref={scrollRef} style={{ height: "100%" }}>
               <div
                 style={{
                   backgroundColor: "rgb(32 32 42 / 96%)",
@@ -212,7 +225,7 @@ export default function MainPage() {
                 {matches ? null : (
                   <DrawerHeader className={classes.bodyHeader}>
                     <IconButton onClick={handleLeftDrawerToggle}>
-                      <AccountCircleIcon />
+                      <AccountCircleOutlined />
                     </IconButton>
 
                     {rightOpen ? null : (
@@ -254,7 +267,7 @@ export default function MainPage() {
                   Copyright ©{new Date().getFullYear()} Mahadi Hassan Munna
                 </span>
               </Box>
-            </Scrollbar>
+            </Scrollbars>
           </Box>
           <RightDrawer
             anchor={"right"}
@@ -305,7 +318,7 @@ const useStyles = makeStyles((theme) => ({
   bodyHeader: {
     display: "flex",
     justifyContent: "space-between !important",
-    position: "absolute",
+    position: "sticky",
     top: 0,
     paddingInline: "1rem",
     width: "96vw",
