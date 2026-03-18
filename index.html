@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){var t=localStorage.getItem("pt")||"light";document.documentElement.setAttribute("data-theme",t);})();</script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mahadi Hassan Munna — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['Inter','sans-serif'], mono: ['Fira Code','monospace'] },
+        colors: {
+          bg: '#060612', surface: '#0e0e24', border: '#1a1a3e',
+          primary: '#8B5CF6', cyan: '#22D3EE', pink: '#F472B6', green: '#4ADE80', amber: '#F59E0B'
+        }
+      }}
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #060612; color: #E2E8F0; font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none; }
+
+    /* Custom cursor */
+    #cursor { position: fixed; width: 12px; height: 12px; background: #8B5CF6; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform .1s, background .2s; mix-blend-mode: screen; }
+    #cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid rgba(139,92,246,.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all .15s ease; }
+    body:hover #cursor { opacity:1; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #060612; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#8B5CF6,#22D3EE); border-radius: 2px; }
+
+    /* Scroll progress */
+    #progress-bar { position:fixed; top:0; left:0; height:2px; background: linear-gradient(90deg,#8B5CF6,#22D3EE,#F472B6); z-index:1000; transition: width .1s; }
+
+    /* Glass card */
+    .glass { background: rgba(14,14,36,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(139,92,246,.15); border-radius: 20px; transition: all .3s ease; }
+    .glass:hover { border-color: rgba(139,92,246,.4); box-shadow: 0 0 40px rgba(139,92,246,.12), 0 20px 40px rgba(0,0,0,.3); transform: translateY(-6px); }
+
+    /* Gradient text */
+    .grad { background: linear-gradient(135deg, #8B5CF6 0%, #22D3EE 50%, #F472B6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grad2 { background: linear-gradient(135deg, #22D3EE, #F472B6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* Neon glow */
+    .neon { text-shadow: 0 0 20px rgba(139,92,246,.8), 0 0 40px rgba(139,92,246,.4); }
+    .neon-cyan { text-shadow: 0 0 20px rgba(34,211,238,.8), 0 0 40px rgba(34,211,238,.4); }
+
+    /* Section tag */
+    .stag { font-family:'Fira Code',monospace; font-size:12px; letter-spacing:4px; text-transform:uppercase; color:#8B5CF6; }
+
+    /* Tech badge */
+    .tbadge { display:inline-block; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:500; border:1px solid; transition: all .2s; }
+
+    /* Nav */
+    .nav-link { position:relative; font-size:13px; font-weight:500; color:#94A3B8; transition: color .2s; }
+    .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px; background:linear-gradient(90deg,#8B5CF6,#22D3EE); transition:width .3s; border-radius:1px; }
+    .nav-link:hover, .nav-link.active { color:#fff; }
+    .nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+    /* Hero bg */
+    #hero { background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(139,92,246,.15) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(34,211,238,.08) 0%, transparent 60%), #060612; }
+
+    /* Animated grid */
+    .hero-grid { background-image: linear-gradient(rgba(139,92,246,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,.04) 1px, transparent 1px); background-size: 60px 60px; }
+
+    /* Blob */
+    @keyframes blob { 0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%} 50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%} }
+    .blob { animation: blob 8s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+    .float { animation: float 5s ease-in-out infinite; }
+    @keyframes pulse-ring { 0%{transform:scale(.9);opacity:.7} 70%{transform:scale(1.05);opacity:.3} 100%{transform:scale(.9);opacity:.7} }
+    .pulse-ring { animation: pulse-ring 3s ease-in-out infinite; }
+
+    /* Skill bar */
+    .sk-bar { height:5px; background:rgba(255,255,255,.06); border-radius:3px; overflow:hidden; }
+    .sk-fill { height:100%; border-radius:3px; width:0; transition:width 1.4s cubic-bezier(.4,0,.2,1); }
+
+    /* Timeline */
+    .tl-item { position:relative; padding-left:32px; }
+    .tl-item::before { content:''; position:absolute; left:0; top:6px; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,#8B5CF6,#22D3EE); box-shadow:0 0 12px rgba(139,92,246,.6); }
+    .tl-item:not(:last-child)::after { content:''; position:absolute; left:4px; top:16px; width:1.5px; height:calc(100% + 8px); background:linear-gradient(#8B5CF640,transparent); }
+
+    /* Magnetic button */
+    .mag-btn { position:relative; overflow:hidden; }
+    .mag-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.1),transparent); opacity:0; transition:opacity .3s; border-radius:inherit; }
+    .mag-btn:hover::before { opacity:1; }
+
+    /* Project card image area */
+    .proj-img { height:180px; border-radius:12px 12px 0 0; display:flex; align-items:center; justify-content:center; font-size:48px; position:relative; overflow:hidden; }
+    .proj-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 50%, rgba(6,6,18,.8) 100%); }
+
+    /* Stat */
+    .stat-val { font-size:2.8rem; font-weight:900; line-height:1; }
+
+    /* Floating orbs */
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+
+    /* Scroll indicator */
+    @keyframes scroll-down { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(8px);opacity:0} }
+    .scroll-arrow { animation: scroll-down 1.5s ease-in-out infinite; }
+
+    /* Mobile menu */
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:flex;}
+
+    @media(max-width:768px) { .stat-val { font-size:2rem; } }
+
+    /* ── LIGHT THEME ── */
+    html[data-theme="light"] body{background:#F0F4FF!important;color:#0F172A;cursor:auto}
+    html[data-theme="light"] #cursor,html[data-theme="light"] #cursor-ring{display:none}
+    html[data-theme="light"] .glass{background:rgba(255,255,255,.92)!important;border-color:rgba(124,58,237,.14)!important;box-shadow:0 2px 16px rgba(15,23,42,.07)!important;color:#0F172A}
+    html[data-theme="light"] .glass:hover{border-color:rgba(124,58,237,.3)!important}
+    html[data-theme="light"] .text-white{color:#0F172A!important}
+    html[data-theme="light"] .text-gray-400{color:#475569!important}
+    html[data-theme="light"] .text-gray-500{color:#64748B!important}
+    html[data-theme="light"] .stag{color:#7C3AED!important}
+    html[data-theme="light"] .nav-link{color:#475569!important}
+    html[data-theme="light"] .nav-link:hover{color:#0F172A!important}
+    html[data-theme="light"] #navbar.scrolled{background:rgba(240,244,255,.97)!important}
+    html[data-theme="light"] footer{background:#E8EEFF;border-color:rgba(124,58,237,.15)!important}
+    html[data-theme="light"] footer p{color:#64748B!important}
+    html[data-theme="light"] [style*="linear-gradient(135deg,#8B5CF6"]{color:#fff!important}
+    html[data-theme="light"] ::-webkit-scrollbar-track{background:#F0F4FF}
+    html[data-theme="light"] ::-webkit-scrollbar-thumb{background:linear-gradient(#7C3AED,#0891B2)}
+    html[data-theme="dark"] #hero {
+      background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(139,92,246,.18) 0%, transparent 68%),
+                  radial-gradient(ellipse 50% 40% at 80% 80%, rgba(34,211,238,.1) 0%, transparent 60%),
+                  radial-gradient(ellipse 35% 30% at 10% 60%, rgba(244,114,182,.07) 0%, transparent 55%),
+                  #07090F !important;
+    }
+    html[data-theme="light"] #hero {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,.08) 0%, transparent 65%),
+                  radial-gradient(ellipse 50% 40% at 85% 80%, rgba(8,145,178,.06) 0%, transparent 55%),
+                  #F0F4FF !important;
+    }
+    html[data-theme="light"] .neon {text-shadow: none;}
+
+    /* ── MOBILE: navbar always has background at top ── */
+    @media(max-width:767px){
+      #navbar{background:rgba(6,6,18,.85)!important;backdrop-filter:blur(16px)!important}
+      html[data-theme="light"] #navbar{background:rgba(240,244,255,.93)!important;backdrop-filter:blur(16px)!important}
+    }
+
+    /* ── THEME TOGGLE BUTTON ── */
+    .theme-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(139,92,246,.35);background:rgba(139,92,246,.1);color:#A78BFA;cursor:pointer;transition:all .25s;font-size:13px;flex-shrink:0}
+    .theme-btn:hover{background:rgba(139,92,246,.25);border-color:rgba(139,92,246,.6);color:#fff;transform:scale(1.08)}
+    html[data-theme="light"] .theme-btn{border-color:rgba(124,58,237,.3);background:rgba(124,58,237,.08);color:#7C3AED}
+
+    /* ── LANGUAGE SELECTOR ── */
+    .lang-sel{display:flex;align-items:center;gap:4px;background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:20px;padding:4px}
+    .lbtn{background:none;border:none;color:#6B7280;font-size:11px;font-weight:700;font-family:'Fira Code',monospace;cursor:pointer;padding:3px 7px;border-radius:14px;transition:all .2s;letter-spacing:.5px}
+    .lbtn:hover{color:#A78BFA}
+    .lbtn.active{background:rgba(139,92,246,.25);color:#C4B5FD}
+    .lang-sep{color:rgba(139,92,246,.3);font-size:10px;user-select:none}
+    html[data-theme="light"] .lang-sel{background:rgba(124,58,237,.06);border-color:rgba(124,58,237,.2)}
+    html[data-theme="light"] .lbtn{color:#94A3B8}
+    html[data-theme="light"] .lbtn:hover{color:#7C3AED}
+    html[data-theme="light"] .lbtn.active{background:rgba(124,58,237,.15);color:#5B21B6}
+
+    /* ── PROJECT FILTER TABS ── */
+    .filter-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .ftab{padding:7px 18px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid rgba(139,92,246,.25);background:rgba(139,92,246,.07);color:#94A3B8;transition:all .2s;font-family:'Fira Code',monospace}
+    .ftab:hover{border-color:rgba(139,92,246,.5);color:#A78BFA;background:rgba(139,92,246,.12)}
+    .ftab.active{background:rgba(139,92,246,.2);border-color:rgba(139,92,246,.6);color:#C4B5FD}
+    html[data-theme="light"] .ftab{border-color:rgba(124,58,237,.2);background:rgba(124,58,237,.06);color:#6B7280}
+    html[data-theme="light"] .ftab.active{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.6);color:#5B21B6}
+    html[data-theme="light"] #mobile-menu.open{color: rgba(52, 19, 130, 0.927); }
+    html[data-theme="light"] .avatar-bg { 
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,.08) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 85% 80%, rgba(8,145,178,.06) 0%, transparent 55%),
+      #F0F4FF !important; 
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <!-- Progress bar -->
+  <div id="progress-bar" style="width:0%"></div>
+
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 px-6 py-5">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#hero" class="font-mono text-base font-bold text-white"><span class="text-primary">&#x3C;</span>Munna<span class="text-cyan">/</span><span class="text-primary">&#x3E;</span></a>
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#publications" class="nav-link">Publications</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      
+      <!-- Desktop: lang + theme + hire -->
+      <div class="hidden md:flex items-center gap-3">
+        <div class="lang-sel">
+          <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <span class="lang-sep">|</span>
+          <button class="lbtn" data-lang="de" onclick="setLang('de')">DE</button>
+          <span class="lang-sep">|</span>
+          <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR</button>
+        </div>
+        <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <a href="#contact" class="mag-btn inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-full" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9)">
+          <i class="fa-solid fa-paper-plane text-xs"></i> <span data-i18n="hire">Hire Me</span>
+        </a>
+      </div>
+      <!-- Mobile: lang + theme + hamburger -->
+      <div class="flex items-center gap-2 md:hidden">
+        <div class="lang-sel">
+          <button class="lbtn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <span class="lang-sep">|</span>
+          <button class="lbtn" data-lang="de" onclick="setLang('de')">DE</button>
+          <span class="lang-sep">|</span>
+          <button class="lbtn" data-lang="fr" onclick="setLang('fr')">FR</button>
+        </div>
+        <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+        <button onclick="toggleMobile()" class="text-gray-400 hover:text-white text-xl ms-2"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+    </div>
+    <div id="mobile-menu" class="md:hidden flex-col gap-3 pt-4 pb-3 px-2 text-sm text-gray-300">
+      <a href="#about" onclick="toggleMobile()" class="block py-1.5 hover:text-white">About</a>
+      <a href="#skills" onclick="toggleMobile()" class="block py-1.5 hover:text-white">Skills</a>
+      <a href="#experience" onclick="toggleMobile()" class="block py-1.5 hover:text-white">Experience</a>
+      <a href="#projects" onclick="toggleMobile()" class="block py-1.5 hover:text-white">Projects</a>
+      <a href="#publications" onclick="toggleMobile()" class="block py-1.5 hover:text-white">Publications</a>
+      <a href="#contact" onclick="toggleMobile()" class="block py-1.5 hover:text-white">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero" class="relative min-h-screen flex items-center pt-20 hero-grid overflow-hidden">
+    <!-- Orbs -->
+    <div class="orb w-96 h-96 top-0 left-1/4" style="background:rgba(139,92,246,.12)"></div>
+    <div class="orb w-72 h-72 bottom-20 right-10" style="background:rgba(34,211,238,.08)"></div>
+    <div class="orb w-56 h-56 top-1/3 right-1/4" style="background:rgba(244,114,182,.07)"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-5 gap-12 items-center py-16">
+      <!-- Left: 3 cols -->
+      <div class="md:col-span-3" data-aos="fade-right" data-aos-duration="900">
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="stag text-xs text-primary">Open to Opportunities</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black leading-tight mb-3 text-white">
+          Mahadi<br/>Hassan <span class="grad neon">Munna</span>
+        </h1>
+        <div class="text-lg md:text-xl text-gray-400 font-medium mb-6 h-8">
+          <span id="typed-text" class="text-cyan"></span>
+        </div>
+        <p class="text-gray-400 text-base leading-relaxed mb-8 max-w-xl">
+          Full-Stack Engineer with 4 years of production experience. 
+          Building AI-powered products at <span class="text-white font-medium">IDLC Finance</span> &amp; 
+          <span class="text-white font-medium">Autoby24 GmbH</span>. 
+          Currently pursuing Masters in Computer Science at <span class="text-cyan font-medium">University of Bern 🇨🇭</span>.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#projects" class="mag-btn flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9); box-shadow:0 0 30px rgba(139,92,246,.4)">
+            <i class="fa-solid fa-rocket"></i> View Projects
+          </a>
+          <a href="#contact" class="flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-full text-sm border border-white/10 hover:border-primary/50 transition bg-white/5 backdrop-blur-sm">
+            <i class="fa-solid fa-envelope"></i> Contact Me
+          </a>
+        </div>
+        <!-- Socials -->
+        <div class="flex items-center gap-3">
+          <span class="text-gray-600 text-xs font-mono">Find me on</span>
+          <div class="h-px w-8 bg-border"></div>
+          <a href="https://www.linkedin.com/in/mahadi-hassan-munna-55ba9a141/" target="_blank" class="w-9 h-9 rounded-full flex items-center justify-center border border-border hover:border-primary/50 text-gray-400 hover:text-primary transition text-sm">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full flex items-center justify-center border border-border hover:border-cyan/50 text-gray-400 hover:text-cyan transition text-sm">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="mailto:mahadi.munna@students.unibe.ch" class="w-9 h-9 rounded-full flex items-center justify-center border border-border hover:border-pink/50 text-gray-400 hover:text-pink transition text-sm">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: 2 cols -->
+      <div class="md:col-span-2 flex justify-center" data-aos="fade-left" data-aos-duration="900">
+        <div class="relative">
+          <!-- Glow rings -->
+          <div class="absolute inset-0 rounded-full pulse-ring" style="background:radial-gradient(circle, rgba(139,92,246,.15) 0%, transparent 70%)"></div>
+          <!-- Avatar -->
+          <div class="float relative z-10">
+            <div class="w-52 h-52 md:w-64 md:h-64 rounded-full p-[3px]" style="background:linear-gradient(135deg,#8B5CF6,#22D3EE,#F472B6)">
+              <div class="w-full h-full rounded-full flex items-center justify-center text-7xl md:text-8xl avatar-bg" style="background:#0e0e24">
+                <img src="assets/Munna.png" alt="Mahadi Hassan Munna" class="w-full h-full rounded-full object-cover">
+              </div>
+            </div>
+            <!-- Badge: location -->
+            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-1.5 flex items-center gap-2 text-xs text-gray-300 whitespace-nowrap">
+              <i class="fa-solid fa-location-dot text-pink text-xs"></i> Bern, Switzerland
+            </div>
+            <!-- Badge: MSc -->
+            <div class="absolute -top-2 -right-4 glass rounded-xl px-3 py-2 text-xs text-gray-300">
+              <div class="text-primary font-bold text-sm">MSc. in CS</div>
+              <div class="text-gray-500">University of Bern</div>
+            </div>
+            <!-- Badge: award -->
+            <div class="absolute top-2 -left-8 glass rounded-xl px-3 py-2 text-xs">
+              <div class="text-amber font-bold">🏆 Award</div>
+              <div class="text-gray-500">×2 Chairman</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-600">
+      <span class="text-xs font-mono">scroll</span>
+      <i class="fa-solid fa-chevron-down scroll-arrow"></i>
+    </div>
+  </section>
+
+  <!-- ── STATS BELT ── -->
+  <div class="relative z-10 py-6">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="glass p-6 grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up">
+        <div class="text-center">
+          <div class="stat-val grad" data-count="4">0</div>
+          <div class="text-gray-500 text-xs mt-1 font-mono">Years Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-val grad2" data-count="10">0</div>
+          <div class="text-gray-500 text-xs mt-1 font-mono">Projects Shipped</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-val" style="background:linear-gradient(135deg,#F472B6,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-count="3">0</div>
+          <div class="text-gray-500 text-xs mt-1 font-mono">Publications</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-val" style="background:linear-gradient(135deg,#4ADE80,#22D3EE);-webkit-background-clip:text;-webkit-text-fill-color:transparent" data-count="2">0</div>
+          <div class="text-gray-500 text-xs mt-1 font-mono">Chairman Awards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" class="relative z-10 py-28">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
+      <div data-aos="fade-right">
+        <p class="stag mb-3">Who I Am</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-6 text-white">About <span class="grad">Me</span></h2>
+        <p class="text-gray-400 leading-relaxed mb-5 text-base">
+          I'm a Full-Stack Software Engineer and AI/ML enthusiast with a strong passion for building 
+          impactful digital products. My career spans enterprise finance platforms, cross-platform mobile apps, 
+          and AI-integrated services across two countries.
+        </p>
+        <p class="text-gray-400 leading-relaxed mb-8 text-base">
+          I'm currently pursuing my Swiss Joint Master's in Computer Science (BENEFR) at the 
+          <span class="text-white">University of Bern</span>, where I explore cryptographic protocols, 
+          optimization algorithms, and 3D computer vision — bringing academic rigor back to real-world engineering.
+        </p>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="glass p-4 rounded-2xl">
+            <div class="text-primary text-lg mb-2"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="text-sm font-semibold text-white">MSc Computer Science</div>
+            <div class="text-xs text-gray-500 mt-0.5">University of Bern, 2025–</div>
+          </div>
+          <div class="glass p-4 rounded-2xl">
+            <div class="text-pink text-lg mb-2"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="text-sm font-semibold text-white">Bern, Switzerland</div>
+            <div class="text-xs text-gray-500 mt-0.5">+41 77 289 1384</div>
+          </div>
+          <div class="glass p-4 rounded-2xl">
+            <div class="text-cyan text-lg mb-2"><i class="fa-solid fa-envelope"></i></div>
+            <div class="text-sm font-semibold text-white">mahadi.munna@</div>
+            <div class="text-xs text-gray-500 mt-0.5">students.unibe.ch</div>
+          </div>
+          <div class="glass p-4 rounded-2xl">
+            <div class="text-amber text-lg mb-2"><i class="fa-solid fa-trophy"></i></div>
+            <div class="text-sm font-semibold text-white">BASIS ICT Award</div>
+            <div class="text-xs text-gray-500 mt-0.5">National Champion 2022</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education Timeline -->
+      <div data-aos="fade-left">
+        <p class="stag mb-3">Education</p>
+        <h3 class="text-2xl font-bold text-white mb-8">Academic <span class="grad">Journey</span></h3>
+        <div class="space-y-6">
+          <div class="tl-item">
+            <div class="glass p-5 rounded-2xl">
+              <div class="flex flex-wrap justify-between gap-2 mb-2">
+                <div>
+                  <h4 class="font-bold text-white">Swiss Joint Master's — CS (BENEFR)</h4>
+                  <p class="text-primary text-sm">University of Bern, Switzerland</p>
+                </div>
+                <span class="font-mono text-xs text-gray-600 bg-white/5 px-3 py-1 rounded-full h-fit">Sep 2025 – Present</span>
+              </div>
+              <p class="text-gray-500 text-xs leading-relaxed">Cryptographic Protocols · Optimization · Computer Vision · Reasoning about Knowledge</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="glass p-5 rounded-2xl">
+              <div class="flex flex-wrap justify-between gap-2 mb-2">
+                <div>
+                  <h4 class="font-bold text-white">BSc Computer Science &amp; Engineering</h4>
+                  <p class="text-pink text-sm">MIST — Dhaka, Bangladesh</p>
+                </div>
+                <span class="font-mono text-xs text-gray-600 bg-white/5 px-3 py-1 rounded-full h-fit">2017 – 2021</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 mb-2">
+                <span class="tbadge text-amber border-amber/30 bg-amber/5">GPA 3.70 / 4.00</span>
+                <span class="tbadge text-green border-green/30 bg-green/5">Top 10%</span>
+              </div>
+              <p class="text-gray-500 text-xs">Thesis: Hospital Cabin Management using IoT &amp; Deep Learning</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="glass p-5 rounded-2xl mt-6">
+          <h4 class="font-semibold text-white mb-4 text-sm">Languages</h4>
+          <div class="space-y-3">
+            <div><div class="flex justify-between text-xs mb-1 text-gray-400"><span>Bengali <span class="text-gray-600">(Native)</span></span><span class="text-green">100%</span></div><div class="sk-bar"><div class="sk-fill" data-width="100" style="background:linear-gradient(90deg,#4ADE80,#22D3EE)"></div></div></div>
+            <div><div class="flex justify-between text-xs mb-1 text-gray-400"><span>English <span class="text-gray-600">(CEFR B2)</span></span><span class="text-cyan">88%</span></div><div class="sk-bar"><div class="sk-fill" data-width="88" style="background:linear-gradient(90deg,#22D3EE,#8B5CF6)"></div></div></div>
+            <div><div class="flex justify-between text-xs mb-1 text-gray-400"><span>German <span class="text-gray-600">(CEFR A2)</span></span><span class="text-amber">30%</span></div><div class="sk-bar"><div class="sk-fill" data-width="30" style="background:linear-gradient(90deg,#F59E0B,#F472B6)"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ── -->
+  <section id="skills" class="relative z-10 py-28" style="background:radial-gradient(ellipse 100% 50% at 50% 50%, rgba(139,92,246,.04) 0%, transparent 70%)">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="stag mb-3">What I Know</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white">Technical <span class="grad">Skills</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 mb-12">
+        <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center text-lg" style="background:rgba(139,92,246,.2);color:#8B5CF6"><i class="fa-solid fa-code"></i></div>
+          <h3 class="font-bold text-white mb-3">Languages</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">JavaScript</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">TypeScript</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">Python</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">C++</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">C#</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">Java</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">SQL</span>
+          </div>
+        </div>
+        <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="80">
+          <div class="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center text-lg" style="background:rgba(34,211,238,.2);color:#22D3EE"><i class="fa-brands fa-react"></i></div>
+          <h3 class="font-bold text-white mb-3">Web &amp; Mobile</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">React.js</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">Next.js</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">Node.js</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">ASP.NET Core</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">React Native</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">Flutter</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">Expo</span>
+          </div>
+        </div>
+        <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="160">
+          <div class="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center text-lg" style="background:rgba(244,114,182,.2);color:#F472B6"><i class="fa-solid fa-brain"></i></div>
+          <h3 class="font-bold text-white mb-3">ML / AI</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">PyTorch</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">TensorFlow</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">Scikit-learn</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">YOLO</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">RAG</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">MCP</span>
+          </div>
+        </div>
+        <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center text-lg" style="background:rgba(74,222,128,.2);color:#4ADE80"><i class="fa-solid fa-database"></i></div>
+          <h3 class="font-bold text-white mb-3">Databases</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-green border-green/30 bg-green/5">MS SQL Server</span>
+            <span class="tbadge text-green border-green/30 bg-green/5">PostgreSQL</span>
+            <span class="tbadge text-green border-green/30 bg-green/5">Oracle DB</span>
+          </div>
+        </div>
+        <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="80">
+          <div class="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center text-lg" style="background:rgba(245,158,11,.2);color:#F59E0B"><i class="fa-solid fa-wrench"></i></div>
+          <h3 class="font-bold text-white mb-3">Tools &amp; DevOps</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Git</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Docker</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Power BI</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Figma</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Adobe XD</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Jest</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Playwright</span>
+          </div>
+        </div>
+        <div class="glass p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="160">
+          <div class="w-11 h-11 rounded-2xl mb-4 flex items-center justify-center text-lg" style="background:rgba(139,92,246,.2);color:#8B5CF6"><i class="fa-solid fa-cube"></i></div>
+          <h3 class="font-bold text-white mb-3">3D &amp; Research</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">Blender</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">MATLAB</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">Google Colab</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">OpenFlipper</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill bars -->
+      <div id="skill-section" class="glass p-8 rounded-2xl grid md:grid-cols-2 gap-x-12 gap-y-5" data-aos="fade-up">
+        <div>
+          <div class="flex justify-between text-xs mb-1.5 text-gray-400"><span class="font-medium text-gray-300">React / Next.js</span><span class="text-primary">95%</span></div>
+          <div class="sk-bar"><div class="sk-fill" data-width="95" style="background:linear-gradient(90deg,#8B5CF6,#22D3EE)"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs mb-1.5 text-gray-400"><span class="font-medium text-gray-300">ASP.NET / Node.js</span><span class="text-cyan">90%</span></div>
+          <div class="sk-bar"><div class="sk-fill" data-width="90" style="background:linear-gradient(90deg,#22D3EE,#4ADE80)"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs mb-1.5 text-gray-400"><span class="font-medium text-gray-300">React Native / Mobile</span><span class="text-pink">88%</span></div>
+          <div class="sk-bar"><div class="sk-fill" data-width="88" style="background:linear-gradient(90deg,#F472B6,#8B5CF6)"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs mb-1.5 text-gray-400"><span class="font-medium text-gray-300">Python / ML</span><span class="text-amber">85%</span></div>
+          <div class="sk-bar"><div class="sk-fill" data-width="85" style="background:linear-gradient(90deg,#F59E0B,#F472B6)"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs mb-1.5 text-gray-400"><span class="font-medium text-gray-300">SQL &amp; Databases</span><span class="text-green">88%</span></div>
+          <div class="sk-bar"><div class="sk-fill" data-width="88" style="background:linear-gradient(90deg,#4ADE80,#22D3EE)"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs mb-1.5 text-gray-400"><span class="font-medium text-gray-300">C++ / Algorithms</span><span class="text-primary">80%</span></div>
+          <div class="sk-bar"><div class="sk-fill" data-width="80" style="background:linear-gradient(90deg,#8B5CF6,#F472B6)"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ── -->
+  <section id="experience" class="relative z-10 py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="stag mb-3">Career</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white">Work <span class="grad2">Experience</span></h2>
+      </div>
+      <div class="space-y-6 max-w-3xl mx-auto">
+        <div class="glass p-7 rounded-2xl" data-aos="fade-up">
+          <div class="flex flex-wrap justify-between gap-3 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white">Software Engineer</h3>
+              <p class="text-primary font-medium text-sm mt-0.5">IDLC Finance PLC — Dhaka, Bangladesh</p>
+            </div>
+            <span class="font-mono text-xs text-gray-500 bg-white/5 px-3 py-1.5 rounded-full self-start">Jul 2022 – Sep 2025</span>
+          </div>
+          <ul class="space-y-2 text-gray-400 text-sm mb-5">
+            <li class="flex gap-2.5"><span class="text-primary mt-0.5 flex-shrink-0">▸</span>Designed core enterprise software used daily by 4 subsidiaries — 40% faster task completion.</li>
+            <li class="flex gap-2.5"><span class="text-primary mt-0.5 flex-shrink-0">▸</span>Cross-platform mobile app with advanced AI, amplifying user engagement by 25%.</li>
+            <li class="flex gap-2.5"><span class="text-primary mt-0.5 flex-shrink-0">▸</span>Migrated reporting to Power BI &amp; SQL — 2× acceleration in report generation speed.</li>
+            <li class="flex gap-2.5"><span class="text-primary mt-0.5 flex-shrink-0">▸</span>Architected AI agent toolkit using LMStudio, boosting operational efficiency by 50%.</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">React.js</span>
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">ASP.NET Core</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">React Native</span>
+            <span class="tbadge text-amber border-amber/30 bg-amber/5">Power BI</span>
+            <span class="tbadge text-green border-green/30 bg-green/5">LMStudio</span>
+          </div>
+        </div>
+
+        <div class="glass p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="80">
+          <div class="flex flex-wrap justify-between gap-3 mb-4">
+            <div>
+              <h3 class="text-xl font-bold text-white">Frontend Developer</h3>
+              <p class="text-pink font-medium text-sm mt-0.5">Autoby24 GmbH — Zurich, Switzerland 🇨🇭</p>
+            </div>
+            <span class="font-mono text-xs text-gray-500 bg-white/5 px-3 py-1.5 rounded-full self-start">Apr 2021 – Jun 2022</span>
+          </div>
+          <ul class="space-y-2 text-gray-400 text-sm mb-5">
+            <li class="flex gap-2.5"><span class="text-pink mt-0.5 flex-shrink-0">▸</span>Pioneered frontend for Goby24 &amp; Autoby24 — delivered 90% of features independently.</li>
+            <li class="flex gap-2.5"><span class="text-pink mt-0.5 flex-shrink-0">▸</span>Deployed Goby24 mobile ecosystem in under 3 months — 50% faster than standard timelines.</li>
+          </ul>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">React.js</span>
+            <span class="tbadge text-pink border-pink/30 bg-pink/5">React Native</span>
+            <span class="tbadge text-primary border-primary/30 bg-primary/5">Expo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ── -->
+  <section id="projects" class="relative z-10 py-28" style="background:radial-gradient(ellipse 80% 40% at 50% 50%, rgba(34,211,238,.04) 0%, transparent 70%)">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="stag mb-3">Portfolio</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white">Key <span class="grad">Projects</span></h2>
+        <p class="text-gray-500 mt-3 text-sm">Click any project to explore details, stack, metrics &amp; more</p>
+      </div>
+
+      <!-- Dynamic projects grid -->
+      <div class="filter-tabs">
+        <button class="ftab active" data-filter="all" data-i18n="filter_all">All</button>
+        <button class="ftab" data-filter="Professional Project" data-i18n="filter_pro">Professional</button>
+        <button class="ftab" data-filter="Personal Project" data-i18n="filter_pers">Personal</button>
+        <button class="ftab" data-filter="Research" data-i18n="filter_res">Research</button>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5 mb-5" id="proj-featured-row"></div>
+      <div class="grid md:grid-cols-3 gap-5" id="proj-secondary-grid"></div>
+
+    </div>
+  </section>
+
+  <!-- ── PUBLICATIONS ── -->
+  <section id="publications" class="relative z-10 py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="stag mb-3">Research</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white">Published <span class="grad2">Research</span></h2>
+        <p class="text-gray-500 mt-3 text-sm">Click to read full abstract, methodology &amp; citation</p>
+      </div>
+      <div class="space-y-5 max-w-4xl mx-auto">
+        <a href="publication.html?id=bmc-2022" class="glass p-6 rounded-2xl flex gap-5 group cursor-pointer block hover:-translate-y-1" data-aos="fade-up">
+          <div class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl font-black text-primary" style="background:rgba(139,92,246,.15)">1</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h4 class="font-bold text-white text-sm group-hover:text-primary transition leading-snug pr-2">A deep learning based multimodal interaction system for bedridden patients</h4>
+              <span class="tbadge text-amber border-amber/30 bg-amber/5 flex-shrink-0"><i class="fa-solid fa-star text-xs mr-1"></i>Q1</span>
+            </div>
+            <p class="text-gray-500 text-xs mb-2">Islam, M.N., Aadeeb, M.S., Hassan Munna, M.M., et al.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tbadge text-green border-green/30 bg-green/5">BMC Health Services Research</span>
+              <span class="tbadge text-gray-400 border-gray-700 bg-white/3">Springer · 2022</span>
+            </div>
+          </div>
+          <div class="self-center text-gray-600 group-hover:text-primary transition"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
+
+        <a href="publication.html?id=ieee-2021" class="glass p-6 rounded-2xl flex gap-5 group cursor-pointer block hover:-translate-y-1" data-aos="fade-up" data-aos-delay="80">
+          <div class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl font-black text-cyan" style="background:rgba(34,211,238,.15)">2</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h4 class="font-bold text-white text-sm group-hover:text-cyan transition leading-snug pr-2">Hands-Free Interaction Technique via Nose and Teeth Movements for Mobile Devices</h4>
+              <span class="tbadge text-amber border-amber/30 bg-amber/5 flex-shrink-0"><i class="fa-solid fa-star text-xs mr-1"></i>Q1</span>
+            </div>
+            <p class="text-gray-500 text-xs mb-2">Islam, M.N., Aadeeb, M.S., Khan, R.R., Munna, M.M.H., et al.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tbadge text-cyan border-cyan/30 bg-cyan/5">IEEE Access</span>
+              <span class="tbadge text-gray-400 border-gray-700 bg-white/3">Vol. 9 · 2021</span>
+            </div>
+          </div>
+          <div class="self-center text-gray-600 group-hover:text-cyan transition"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
+
+        <a href="publication.html?id=isda-2020" class="glass p-6 rounded-2xl flex gap-5 group cursor-pointer block hover:-translate-y-1" data-aos="fade-up" data-aos-delay="160">
+          <div class="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl font-black text-pink" style="background:rgba(244,114,182,.15)">3</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h4 class="font-bold text-white text-sm group-hover:text-pink transition leading-snug pr-2">Hospital Cabin Management System using Brain-Computer Interaction</h4>
+              <span class="tbadge text-gray-400 border-gray-700 bg-white/3">Conference</span>
+            </div>
+            <p class="text-gray-500 text-xs mb-2">Aadeeb, M.S., Munna, M.M.H., Rahman, M.R., Islam, M.N.</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="tbadge text-pink border-pink/30 bg-pink/5">ISDA 2020</span>
+              <span class="tbadge text-gray-400 border-gray-700 bg-white/3">2020</span>
+            </div>
+          </div>
+          <div class="self-center text-gray-600 group-hover:text-pink transition"><i class="fa-solid fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" class="relative z-10 py-28" style="background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(139,92,246,.08) 0%, transparent 70%)">
+    <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up">
+      <p class="stag mb-3">Get In Touch</p>
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-5">Let's <span class="grad">Work Together</span></h2>
+      <p class="text-gray-400 leading-relaxed text-base" data-i18n="contact_open">
+        Open to part-time roles, freelance projects, and research collaborations. 
+      </p>
+      <p class="text-gray-400 mb-12 leading-relaxed text-base" data-i18n="contact_avail">
+        Based in Bern — available from April 2026
+      </p>
+      <div class="grid md:grid-cols-3 gap-4 mb-10">
+        <a href="mailto:mahadi.munna@students.unibe.ch" class="glass p-5 rounded-2xl flex flex-col items-center gap-3 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl" style="background:rgba(139,92,246,.2);color:#8B5CF6"><i class="fa-solid fa-envelope"></i></div>
+          <span class="text-white text-sm font-semibold">Email</span>
+          <span class="text-gray-500 text-xs text-center break-all">mahadi.munna@students.unibe.ch</span>
+        </a>
+        <a href="tel:+41772891384" class="glass p-5 rounded-2xl flex flex-col items-center gap-3 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl" style="background:rgba(34,211,238,.2);color:#22D3EE"><i class="fa-solid fa-phone"></i></div>
+          <span class="text-white text-sm font-semibold">Phone</span>
+          <span class="text-gray-500 text-xs">+41 77 289 1384</span>
+        </a>
+        <a href="https://www.linkedin.com/in/mahadi-hassan-munna-55ba9a141/" target="_blank" class="glass p-5 rounded-2xl flex flex-col items-center gap-3 group hover:-translate-y-1">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl" style="background:rgba(244,114,182,.2);color:#F472B6"><i class="fa-brands fa-linkedin-in"></i></div>
+          <span class="text-white text-sm font-semibold">LinkedIn</span>
+          <span class="text-gray-500 text-xs">mahadi-hassan-munna</span>
+        </a>
+      </div>
+      <a href="mailto:mahadi.munna@students.unibe.ch" class="mag-btn inline-flex items-center gap-3 text-white font-bold text-base px-10 py-4 rounded-full" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9);box-shadow:0 0 40px rgba(139,92,246,.5)">
+        <i class="fa-solid fa-paper-plane"></i> Say Hello
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="relative z-10 border-t py-8 text-center" style="border-color:rgba(139,92,246,.1)">
+    <p class="text-gray-500 text-sm">Designed &amp; Built by <span class="text-primary font-semibold">Mahadi Hassan Munna</span></p>
+    <p class="text-gray-600 text-xs font-mono mt-1">© 2025 — Bern, Switzerland 🇨🇭</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script>
+    AOS.init({ duration:800, once:true, offset:60 });
+
+    new Typed('#typed-text', {
+      strings:['Full-Stack Software Engineer','AI &amp; ML Enthusiast', 'Computer Vision Specialist', 'React / Node.js Developer','MSc Student @ University of Bern','Open-Source Builder'],
+      typeSpeed:55, backSpeed:28, backDelay:1800, loop:true
+    });
+
+    function toggleMobile(){ document.getElementById('mobile-menu').classList.toggle('open'); }
+
+    // Cursor
+    const cur = document.getElementById('cursor'), ring = document.getElementById('cursor-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    function animRing(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); } animRing();
+    document.querySelectorAll('a,button,.glass').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{ cur.style.transform='translate(-50%,-50%) scale(2.5)'; cur.style.background='#22D3EE'; ring.style.transform='translate(-50%,-50%) scale(1.5)'; });
+      el.addEventListener('mouseleave',()=>{ cur.style.transform='translate(-50%,-50%) scale(1)'; cur.style.background='#8B5CF6'; ring.style.transform='translate(-50%,-50%) scale(1)'; });
+    });
+
+    // Scroll progress
+    window.addEventListener('scroll',()=>{
+      const s=document.documentElement, pct=s.scrollTop/(s.scrollHeight-s.clientHeight)*100;
+      document.getElementById('progress-bar').style.width=pct+'%';
+    });
+
+    // Navbar
+    window.addEventListener('scroll',()=>{
+      const nav=document.getElementById('navbar');
+      if(window.scrollY>50){ nav.style.background='rgba(6,6,18,0.95)'; nav.style.backdropFilter='blur(20px)'; nav.style.paddingTop='12px'; nav.style.paddingBottom='12px'; }
+      else { nav.style.background='transparent'; nav.style.backdropFilter='none'; nav.style.paddingTop='20px'; nav.style.paddingBottom='20px'; }
+    });
+
+    // Active nav
+    const secs=document.querySelectorAll('section[id]');
+    window.addEventListener('scroll',()=>{
+      let cur2='';
+      secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-140) cur2=s.id; });
+      document.querySelectorAll('.nav-link').forEach(l=>{ l.classList.toggle('active', l.getAttribute('href')==='#'+cur2); });
+    });
+
+    // Counter animation
+    const counterObs = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          document.querySelectorAll('[data-count]').forEach(el=>{
+            const t=+el.dataset.count; let c=0;
+            const ti=setInterval(()=>{ c=Math.min(c+1,t); el.textContent=c+(t>=4?'+':''); if(c>=t)clearInterval(ti); },60);
+          });
+          counterObs.disconnect();
+        }
+      });
+    },{threshold:.3});
+    const statEl=document.querySelector('[data-count]');
+    if(statEl) counterObs.observe(statEl.closest('div') || statEl);
+
+    // Skill bars
+    const skillObs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('.sk-fill').forEach(b=>{ b.style.width=b.dataset.width+'%'; }); skillObs.unobserve(e.target); }});
+    },{threshold:.2});
+    document.querySelectorAll('#skill-section,#about').forEach(el=>skillObs.observe(el));
+
+    // Particle bg
+    const canvas=document.createElement('canvas'); canvas.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.6'; document.body.prepend(canvas);
+    const ctx=canvas.getContext('2d');
+    function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; } resize(); addEventListener('resize',resize);
+    const pts=Array.from({length:55},()=>({ x:Math.random()*innerWidth, y:Math.random()*innerHeight, vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35, r:Math.random()*1.2+.4, a:Math.random()*.4+.15 }));
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      pts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>canvas.width)p.vx*=-1; if(p.y<0||p.y>canvas.height)p.vy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(139,92,246,${p.a})`; ctx.fill(); });
+      for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.hypot(dx,dy);
+        if(d<130){ ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.strokeStyle=`rgba(139,92,246,${.06*(1-d/130)})`; ctx.lineWidth=.6; ctx.stroke(); }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+  <script src="data.js"></script>
+  <script>
+  /* ══ TRANSLATIONS ══ */
+    var I18N = {
+      en: {
+        hire:'Hire Me', nav_about:'About', nav_skills:'Skills', nav_exp:'Experience',
+        nav_proj:'Projects', nav_pub:'Publications', nav_contact:'Contact',
+        tag_about:'Who I Am', tag_skills:'What I Know', tag_exp:'Career',
+        tag_proj:'Portfolio', tag_pub:'Research', tag_contact:'Get In Touch',
+        proj_sub:'Click any project to explore details, stack, metrics & more',
+        pub_sub:'Click to read full abstract, methodology & citation',
+        filter_all:'All', filter_pro:'Professional', filter_pers:'Personal', filter_res:'Research',
+        contact_open:'Open to part-time roles, freelance projects, and research collaborations.',
+        contact_avail:'Based in Bern — available from April 2026.',
+        say_hello:'Say Hello'
+      },
+      de: {
+        hire:'Kontaktieren', nav_about:'Über mich', nav_skills:'Fähigkeiten', nav_exp:'Erfahrung',
+        nav_proj:'Projekte', nav_pub:'Publikationen', nav_contact:'Kontakt',
+        tag_about:'Wer ich bin', tag_skills:'Was ich kann', tag_exp:'Karriere',
+        tag_proj:'Portfolio', tag_pub:'Forschung', tag_contact:'Kontakt aufnehmen',
+        proj_sub:'Klicken Sie auf ein Projekt für Details, Stack und Metriken',
+        pub_sub:'Klicken zum Lesen von Abstract, Methodik und Zitat',
+        filter_all:'Alle', filter_pro:'Beruflich', filter_pers:'Persönlich', filter_res:'Forschung',
+        contact_open:'Offen für Teilzeitstellen, Freelance-Projekte und Forschungskooperationen.',
+        contact_avail:'Wohnhaft in Bern — verfügbar ab April 2026',
+        say_hello:'Hallo sagen'
+      },
+      fr: {
+        hire:'Engagez-moi', nav_about:'À propos', nav_skills:'Compétences', nav_exp:'Expérience',
+        nav_proj:'Projets', nav_pub:'Publications', nav_contact:'Contact',
+        tag_about:'Qui suis-je', tag_skills:'Mes compétences', tag_exp:'Carrière',
+        tag_proj:'Portfolio', tag_pub:'Recherche', tag_contact:'Me contacter',
+        proj_sub:'Cliquez sur un projet pour explorer les détails, la stack et les métriques',
+        pub_sub:'Cliquez pour lire le résumé, la méthodologie et la citation',
+        filter_all:'Tous', filter_pro:'Professionnel', filter_pers:'Personnel', filter_res:'Recherche',
+        contact_open:'Ouvert aux postes à temps partiel, projets freelance et collaborations de recherche.',
+        contact_avail:"Basé à Berne — disponible à partir d'avril 2026",
+        say_hello:'Dire bonjour'
+      }
+    };
+
+    /* ══ LANGUAGE ══ */
+    var currentLang = localStorage.getItem('pl') || 'en';
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('pl', lang);
+      document.querySelectorAll('.lbtn').forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+      var t = I18N[lang] || I18N.en;
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      // Update filter tab counts after lang change
+      updateFilterCounts();
+    }
+
+    /* ══ THEME ══ */
+    function initTheme() {
+      var t = localStorage.getItem('pt') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      updateThemeIcons(t);
+    }
+    function toggleTheme() {
+      var cur = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('pt', next);
+      updateThemeIcons(next);
+      // Update navbar scroll state for theme
+      var nav = document.getElementById('navbar');
+      if (nav && window.scrollY > 50) {
+        nav.style.background = next === 'light' ? 'rgba(240,244,255,.97)' : 'rgba(6,6,18,0.95)';
+      }
+    }
+    function updateThemeIcons(t) {
+      document.querySelectorAll('.theme-btn').forEach(function(btn) {
+        btn.innerHTML = t === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      });
+    }
+    initTheme();
+
+    /* ══ NAVBAR SCROLL (with theme awareness) ══ */
+    (function() {
+      var nav = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (!nav) return;
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (window.scrollY > 50) {
+          nav.style.background = isLight ? 'rgba(240,244,255,.97)' : 'rgba(6,6,18,0.95)';
+          nav.style.backdropFilter = 'blur(20px)';
+          nav.style.paddingTop = '12px';
+          nav.style.paddingBottom = '12px';
+          nav.classList.add('scrolled');
+        } else {
+          // Mobile always keeps bg (handled by CSS), desktop goes transparent
+          if (window.innerWidth >= 768) {
+            nav.style.background = 'transparent';
+            nav.style.backdropFilter = 'none';
+          }
+          nav.style.paddingTop = '20px';
+          nav.style.paddingBottom = '20px';
+          nav.classList.remove('scrolled');
+        }
+      });
+    })();
+
+    /* ══ PROJECT RENDERING ══ */
+    var allProjects = Object.values(PortfolioData.projects);
+
+    var statusColors = { 'Deployed':'#4ADE80', 'Published (Q1)':'#8B5CF6', 'Active':'#22D3EE' };
+
+    function sBadge(s) {
+      var c = statusColors[s] || '#94A3B8';
+      return '<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;color:'+c+';background:'+c+'18;border:1px solid '+c+'35"><span style="width:5px;height:5px;border-radius:50%;background:'+c+';display:inline-block"></span>'+s+'</span>';
+    }
+    function chips(tags, c) {
+      return (tags||[]).slice(0,3).map(function(t){
+        return '<span style="padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;color:'+c+';border:1px solid '+c+'35;background:'+c+'0d;display:inline-flex">'+t+'</span>';
+      }).join('');
+    }
+
+    function featCard(p) {
+      return '<a href="project.html?id='+p.id+'" class="md:col-span-2 glass rounded-2xl overflow-hidden group cursor-pointer block" data-aos="fade-up">'
+        +'<div class="proj-img group-hover:scale-105 transition-transform duration-500" style="background:linear-gradient(135deg,'+p.color+'44,'+p.color+'18),#0C1120">'
+        +'<div class="relative z-10" style="font-size:2.4rem;color:'+p.color+'"><i class="fa-solid fa-'+p.icon+'"></i></div>'
+        +'<div class="absolute top-4 right-4 z-10 glass rounded-full px-3 py-1 text-xs font-mono" style="color:'+p.color+'">'+p.period+'</div>'
+        +'</div><div class="p-6">'
+        +'<div class="flex flex-wrap items-center gap-2 mb-2">'+sBadge(p.status||'Active')
+        +'<span style="font-size:11px;color:#6B7280;font-family:Fira Code,monospace">'+p.category+'</span></div>'
+        +'<h3 class="font-bold text-xl mb-1 ptitle" style="transition:color .2s;--hc:'+p.color+'">'+p.title+'</h3>'
+        +'<p class="text-gray-400 text-sm mb-4">'+p.subtitle+'</p>'
+        +'<div class="flex flex-wrap gap-1.5 mb-4">'+chips(p.tags,p.color)+'</div>'
+        +'<div class="flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all" style="color:'+p.color+'">View Details <i class="fa-solid fa-arrow-right text-xs"></i></div>'
+        +'</div></a>';
+    }
+    function smCard(p) {
+      return '<a href="project.html?id='+p.id+'" class="glass rounded-2xl p-5 group cursor-pointer block" data-aos="fade-up">'
+        +'<div class="flex items-start gap-3 mb-3">'
+        +'<div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:'+p.color+'20;color:'+p.color+'"><i class="fa-solid fa-'+p.icon+'"></i></div>'
+        +'<div><h3 class="font-bold text-sm leading-tight mb-1 ptitle" style="transition:color .2s;--hc:'+p.color+'">'+p.title+'</h3>'
+        +sBadge(p.status||'Active')+'</div></div>'
+        +'<p class="text-gray-400 text-xs mb-3" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">'+p.subtitle+'</p>'
+        +'<div class="flex items-center gap-1.5 text-xs font-semibold" style="color:'+p.color+'">View <i class="fa-solid fa-arrow-right" style="font-size:9px"></i></div>'
+        +'</a>';
+    }
+    function gridCard(p) {
+      return '<a href="project.html?id='+p.id+'" class="glass rounded-2xl p-5 group cursor-pointer block" data-aos="fade-up">'
+        +'<div class="flex items-center justify-between mb-4">'
+        +'<div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background:'+p.color+'20;color:'+p.color+';font-size:1.2rem"><i class="fa-solid fa-'+p.icon+'"></i></div>'
+        +sBadge(p.status||'Active')+'</div>'
+        +'<h3 class="font-bold mb-1.5 leading-snug ptitle" style="font-size:15px;transition:color .2s;--hc:'+p.color+'">'+p.title+'</h3>'
+        +'<p class="text-gray-400 text-xs mb-3" style="min-height:2.5em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">'+p.subtitle+'</p>'
+        +'<div class="flex flex-wrap gap-1 mb-3">'+chips(p.tags,p.color)+'</div>'
+        +'<div class="text-xs font-mono mb-3" style="color:#6B7280">'+p.period+'</div>'
+        +'<div class="flex items-center gap-1.5 text-sm font-semibold" style="color:'+p.color+'">View Details <i class="fa-solid fa-arrow-right" style="font-size:10px"></i></div>'
+        +'</a>';
+    }
+    var achCard = '<div class="glass rounded-2xl p-6" data-aos="fade-up">'
+      +'<h3 class="font-bold mb-4 stag" style="font-size:11px">Key Achievements</h3>'
+      +'<ul class="space-y-3">'
+      +'<li class="flex items-start gap-2.5"><i class="fa-solid fa-trophy text-xs mt-1" style="color:#F59E0B"></i><div><div class="font-semibold text-xs">Chairman\'s Award x2 (2023, 2024)</div><div class="text-gray-500 text-xs">Top engineer, 0% rollback rate</div></div></li>'
+      +'<li class="flex items-start gap-2.5"><i class="fa-solid fa-medal text-xs mt-1" style="color:#F59E0B"></i><div><div class="font-semibold text-xs">BASIS National ICT Award 2022</div><div class="text-gray-500 text-xs">R&amp;D Project of the Year</div></div></li>'
+      +'<li class="flex items-start gap-2.5"><i class="fa-solid fa-crown text-xs mt-1" style="color:#F59E0B"></i><div><div class="font-semibold text-xs">VP — MIST Computer Club</div><div class="text-gray-500 text-xs">Managed 5 hackathons, 1000+ students</div></div></li>'
+      +'<li class="flex items-start gap-2.5"><i class="fa-solid fa-file-lines text-xs mt-1" style="color:#8B5CF6"></i><div><div class="font-semibold text-xs">3 Published Research Papers</div><div class="text-gray-500 text-xs">IEEE Access Q1, BMC Springer Q1, ISDA 2020</div></div></li>'
+      +'</ul></div>';
+
+    function attachHover(el) {
+      el.querySelectorAll('a.group').forEach(function(card) {
+        var title = card.querySelector('.ptitle');
+        if (!title) return;
+        var m = title.style.cssText.match(/--hc:\s*([^;]+)/);
+        var hc = m ? m[1].trim() : '';
+        card.addEventListener('mouseenter', function(){ if(title) title.style.color = hc; });
+        card.addEventListener('mouseleave', function(){ if(title) title.style.color = ''; });
+      });
+    }
+
+    function updateFilterCounts() {
+      var t = I18N[currentLang] || I18N.en;
+      var prof = allProjects.filter(function(p){ return p.category === 'Professional Project'; }).length;
+      var pers = allProjects.filter(function(p){ return p.category === 'Personal Project'; }).length;
+      var res  = allProjects.filter(function(p){ return p.category.indexOf('Research') > -1 || p.category.indexOf('Academic') > -1; }).length;
+      document.querySelectorAll('.ftab').forEach(function(btn) {
+        var f = btn.getAttribute('data-filter');
+        if (f === 'all')                   btn.textContent = (t.filter_all||'All') + ' (' + allProjects.length + ')';
+        else if (f === 'Professional Project') btn.textContent = (t.filter_pro||'Professional') + ' (' + prof + ')';
+        else if (f === 'Personal Project') btn.textContent = (t.filter_pers||'Personal') + ' (' + pers + ')';
+        else if (f === 'Research')         btn.textContent = (t.filter_res||'Research') + ' (' + res + ')';
+      });
+    }
+
+    function renderProjects(filter) {
+      var featRow = document.getElementById('proj-featured-row');
+      var secGrid = document.getElementById('proj-secondary-grid');
+      if (!featRow || !secGrid) return;
+      featRow.innerHTML = '';
+      secGrid.innerHTML = '';
+
+      var list = filter === 'all' ? allProjects
+        : allProjects.filter(function(p) {
+            if (filter === 'Research') return p.category.indexOf('Research') > -1 || p.category.indexOf('Academic') > -1;
+            return p.category === filter;
+          });
+
+      if (!list.length) {
+        secGrid.innerHTML = '<div class="md:col-span-3 text-center py-12 text-gray-500 font-mono text-sm">No projects in this category.</div>';
+        return;
+      }
+      if (filter === 'all') {
+        featRow.innerHTML = featCard(list[0]);
+        var sb = document.createElement('div');
+        sb.className = 'flex flex-col gap-5';
+        if (list[1]) sb.innerHTML += smCard(list[1]);
+        if (list[2]) sb.innerHTML += smCard(list[2]);
+        featRow.appendChild(sb);
+        list.slice(3).forEach(function(p){ secGrid.innerHTML += gridCard(p); });
+        secGrid.innerHTML += achCard;
+      } else {
+        list.forEach(function(p){ secGrid.innerHTML += gridCard(p); });
+        secGrid.innerHTML += achCard;
+      }
+      attachHover(featRow);
+      attachHover(secGrid);
+      if (window.AOS) AOS.refresh();
+    }
+
+    /* Filter tab clicks */
+    document.querySelectorAll('.ftab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.ftab').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        renderProjects(btn.getAttribute('data-filter'));
+      });
+    });
+
+    /* Init */
+    setLang(currentLang);
+    updateFilterCounts();
+    renderProjects('all');
+  </script>
+
+</body>
+</html>
