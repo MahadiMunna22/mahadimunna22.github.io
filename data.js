@@ -355,7 +355,6 @@ const PortfolioData = {
       challenge: 'Translating the full Goby24 web platform experience to a native mobile environment while maintaining feature parity across ride booking, ride offering, and tourist packages — with a smooth, responsive UI on both iOS and Android.',
       solution: 'Built with React Native for cross-platform compatibility. Reused the existing Goby24 Django REST backend with mobile-optimized API endpoints. Implemented native-feeling navigation flows, date/time pickers, and passenger/ride management screens.',
       images: [
-        'assets/Projects/Goby24Mobile/Goby24LOGO.png', 
         'assets/Projects/Goby24Mobile/0.jpg', 
         'assets/Projects/Goby24Mobile/1.jpg', 
         'assets/Projects/Goby24Mobile/2.jpg', 
